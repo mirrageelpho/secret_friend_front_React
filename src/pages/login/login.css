@@ -1,0 +1,57 @@
+section#login-page {
+    justify-content: center;
+    align-items: center;
+    color: #353434;
+}
+section#login-page header {
+    text-align: center;
+}
+section#login-page header h2{
+    font-size: 27pt;
+}
+section#login-page header span{
+    font-size: 38pt;
+}
+section#login-page header p{
+    font-size: 10pt;
+    margin-bottom: 20px;
+}
+section#login-page content form {
+    width: 500px;
+    max-width: 350px;
+    padding: 50px 20px 30px;
+    background-color: #fafafa;
+    color: #ce711a;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.23);
+}
+section#login-page content form input{
+    height: 50px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    border: 1px solid #FFB900;
+    padding: 15px;
+    border-radius: 5px;
+}
+section#login-page content form p{
+    text-align: center;
+    padding: 15px 0 0 0;
+    color: red;
+}
+section#login-page content form input::placeholder {
+    color: #444444;
+}
+section#login-page content form button{
+    background: #FFB900;
+    color: #444444;
+    width: 100%;
+    height: 45px;
+    font-size: 10pt;
+}
+section#login-page content form button:hover{
+    background: #ff9900;
+    color:#ffffff;
+}
+section#login-page footer {
+    margin-top: 20px;
+    font-size: 10pt;
+}

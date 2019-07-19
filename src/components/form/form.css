@@ -1,0 +1,41 @@
+article#form-add-user-component{
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    margin-top: 60px;
+    padding: 10px;
+    background-color: #fafafa;
+}
+article#form-add-user-component h2{
+    margin: 5px 5px 5px 5px;
+    font-size: 12px;
+}
+article#form-add-user-component form{
+    display: flex;
+    align-content: space-between;
+}
+article#form-add-user-component form input{
+    border: 0.5px solid #a7a6a6c1;
+    padding: 10px;
+}
+article#form-add-user-component form button{
+    margin: 5px;
+    min-width: 70px;
+    background-color: #5da148;
+    color: white;
+}
+article#form-add-user-component form button:hover{
+    background-color: #3d692f;
+}
+
+@media only screen and (max-width: 480px) {
+    article#form-add-user-component form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    article#form-add-user-component form input{
+        height: 40px;
+        width: 95%;
+    }
+  }
