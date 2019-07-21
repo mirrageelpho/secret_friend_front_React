@@ -1,0 +1,29 @@
+div#loading-conteiner{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 115px;
+    margin: 0 auto;
+    color: darkgoldenrod;
+}
+
+.loading {
+    animation: spin infinite 2s linear;
+    width: 15px;
+    height: 15px;
+    background-color: darkgoldenrod;
+    padding: 5px;
+    margin: 5px;
+    pointer-events: none;
+  }
+  
+
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

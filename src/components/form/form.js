@@ -15,7 +15,7 @@ const Form = (props) => {
             ))
             if(response){
                 setValues({name: '', email: ''})
-                props.setCount(props.count+1)
+                props.dispatch({type: 'setData', elem:{_id: 'fake_id', name: form.name, email: form.email}})
             }
                 
         }catch(e) {

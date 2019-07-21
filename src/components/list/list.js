@@ -1,46 +1,55 @@
-import React, {useState, useEffect}  from 'react'
+import React, {useState, useEffect, useReducer}  from 'react'
 import api from '../../services/api'
 import Form from '../../components/form/form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserMinus } from '@fortawesome/free-solid-svg-icons'
 import { faHandPointRight } from '@fortawesome/free-solid-svg-icons'
+import Loading from '../../components/loading/loading'
+
+import reducer from '../../services/reducers'
 
 import './list.css'
 
 const List = (props) => {
+    
     const iconRemove = <FontAwesomeIcon icon={faUserMinus} />
     const iconHasFriend = <FontAwesomeIcon icon={faHandPointRight} />
 
-    const [ data, setData ] = useState([])
+    let [ isLoading, setLoading] = useState(false)
     const [ shuffler, setShuffler ] = useState([])
-    const [ count, setCount ] = useState(0)
+      
+    const initialState = []
 
+    const [ state, dispatch ] = useReducer(reducer, initialState)
 
     useEffect(() => {
+        setLoading(true)
         async function fetchData() {
           const response =  await api.get('/friends')
-          setData(response.data)
+          dispatch({type: 'loadData', data: response.data})
+          setLoading(false)
         }
         fetchData()
-    }, [count]);
-
+    }, [state.length]);
 
     async function handleShuffler(){
+        setLoading(true)
         const response =  await api.get('/make_secret_friend')
         setShuffler(response.data)
+        setLoading(false)
+
     }
 
-
-    async function handleRemove(id){
+    async function handleRemove(id, index, elem){
         const removed = await api.delete('/friends/'+id)
         if(removed)
-            setCount(count + 1)
+            dispatch({type: 'removeData', index: index})
     }
 
 
     return(
         <>  
-            <Form setCount={setCount} count={count} />
+            <Form dispatch={dispatch} />
             <article id="list-friends-component">
                 {shuffler.length === 0 ? 
                     <span>
@@ -58,12 +67,13 @@ const List = (props) => {
                 } 
 
                 <ul>
+                    {isLoading===true && <Loading />}
                     {
                     shuffler.length === 0 ?
-                        data.map(res=> (
+                        state.map((res, index)=> (
                         <li key={res._id}>
                             <span id="text">{res.name} <p>{res.email}</p></span>
-                            <span id="link" onClick={()=>{handleRemove(res._id)}}> {iconRemove} </span>
+                            <span id="link" onClick={()=>{handleRemove(res._id, index)}}> {iconRemove} </span>
                         </li>
                         ))
                     :

@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 import api from '../../services/api'
 import { login } from '../../services/auth'
 import Footer from '../../components/footer/footer'
+import Loading from '../../components/loading/loading'
+
 import './login.css'
 
 const Login = (props) => {
@@ -10,14 +12,17 @@ const Login = (props) => {
         email: '',
         password: ''
     })
-
+    let [ isLoading, setLoading] = useState(false)
     async function handleSignIn(event){
         event.preventDefault()
+        setLoading(true)
+
         try{
             const response = await api.post('/authenticate', (
                 {email: form.email, password: form.password}
             ))
             login(response.data)
+            setLoading(false)
             
         }catch(e) {
               if(!typeof e.response === undefined){
@@ -59,7 +64,8 @@ const Login = (props) => {
                             value={form.password} 
                             onChange={handleChange}
                         />
-                        <button>Entrar</button>
+                        {isLoading===true ? <Loading /> : <button>Entrar</button>}
+                        
                     </form>
                 </content>
                 <Footer />
