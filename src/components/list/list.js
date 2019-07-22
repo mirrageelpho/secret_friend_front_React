@@ -67,7 +67,7 @@ const List = (props) => {
                 } 
 
                 <ul>
-                    {isLoading===true && <Loading />}
+                    {isLoading && <Loading />}
                     {
                     shuffler.length === 0 ?
                         state.map((res, index)=> (
