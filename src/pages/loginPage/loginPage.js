@@ -72,7 +72,7 @@ const Login = (props) => {
                             value={form.password} 
                             onChange={handleChange}
                         />
-                        {isLoading===true ? <Loading /> : <button>Entrar</button>}
+                        {isLoading ? <Loading /> : <button>Entrar</button>}
                         <p id="error">{form.error !== undefined && form.error}</p>
                     </form>
                 </content>
