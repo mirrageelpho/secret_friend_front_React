@@ -32,7 +32,7 @@ section#login-page content form input{
     padding: 15px;
     border-radius: 5px;
 }
-section#login-page content form p{
+section#login-page content form p#error{
     text-align: center;
     padding: 15px 0 0 0;
     color: red;

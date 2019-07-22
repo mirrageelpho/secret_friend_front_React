@@ -49,19 +49,3 @@ input{
   min-width: 100px;
   font-size: 10px;
 }
-
-.loading {
-  animation: spin infinite 20s linear;
-  height: 20vmin;
-  pointer-events: none;
-}
-
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

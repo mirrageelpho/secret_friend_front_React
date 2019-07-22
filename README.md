@@ -1,3 +1,10 @@
+## Basic React app Secret Friend
+This project is to train development with React.
+He's consume an API RESTful from a NodeJs server
+link to Node JS is [https://github.com/mirrageelpho/secret_friend_server]
+
+you can download this project to study or improve
+
 ## NPM install and NPM start
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
